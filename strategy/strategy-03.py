@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 dateS = [
-["2013/3/22","1241.97"],
-["2013/4/1","1140.77"],
-["2013/5/2","1100.52"],
+# ["2013/3/22","1241.97"],
+# ["2013/4/1","1140.77"],
+# ["2013/5/2","1100.52"],
 ["2013/6/3","1028.43"],
 ["2013/7/1","1052.69"],
 ["2013/8/1","1139.01"],
@@ -87,7 +87,7 @@ for i in range(len(dateS)-1):
         fudong.append(round((float(dateS[i][1])-float(dateS[i+1][1]))*pre,1))
         print('盈利',round(fudong[-1],1))
         # print('浮动盈亏',round(fudong[-1],1))
-        print(dateS[i+1][0],round(benjin[-1]+(float(dateS[i][1])-float(dateS[i+1][1]))*pre,1))
+        print(dateS[i][0],'-',dateS[i+1][0],round(benjin[-1]+(float(dateS[i][1])-float(dateS[i+1][1]))*pre,1))
         print('----------')
     if  float(dateS[i][1]) < float(dateS[i + 1][1]) and float(dateS[i + 1][1]) >= half[-1]:
         # print(float(dateS[i][1]),'<',float(dateS[i + 1][1]))
@@ -97,7 +97,7 @@ for i in range(len(dateS)-1):
         benjin.append(round(benjin[-1]+(float(dateS[i+1][1])-half[-1])*pre,1))
         fudong.append(round((float(dateS[i+1][1])-float(dateS[i][1]))*pre,1))
         print('浮动盈亏', fudong[-1])
-        print(dateS[i+1][0],round(benjin[-1],1))
+        print(dateS[i][0],'-',dateS[i+1][0],round(benjin[-1],1))
         print('----------')
 print('本金',benjin)
 print('浮动',fudong)
