@@ -76,9 +76,11 @@ benjin = [10000]
 pre = 60
 fudong = []
 half = []
+halfB = []
 kui = []
-for i in range(0,len(dateS)-3,2):
+for i in range(0,len(dateS)-2,2):
     half.append((float(dateS[i][1]) + float(dateS[i + 1][1])) / 2)
+    halfB.append((float(dateS[i + 1][1]) + float(dateS[i + 2][1])) / 2)
     A = round(float(dateS[i][1]),1)
     B = round(float(dateS[i + 1][1]),1)
     C = round(float(dateS[i + 2][1]),1)
@@ -88,6 +90,7 @@ for i in range(0,len(dateS)-3,2):
     if A > B > C:
         benjin.append(round(benjin[-1]+(A - C)*pre,1))
         fudong.append(round((A - C)*pre,1))
+        # halfB.append()
         print('策略（1）做空: A > B > C')
         print('盈利', fudong[-1])
         print(dateS[i][0], '-', dateS[i + 1][0], '-', dateS[i + 2][0],benjin[-1])
@@ -118,6 +121,8 @@ for i in range(0,len(dateS)-3,2):
         benjin.append(round(benjin[-1]+(C - A)*pre,1))
         fudong.append(round((C - A)*pre,1))
         kui.append(round((C - B) * pre, 1))
+        print('half-1',half[-1])
+        print('half-2',half[-2])
         print('策略（4）做多: A < B < C')
         print('盈利', fudong[-1])
         print(dateS[i][0], '-', dateS[i + 1][0], '-', dateS[i + 2][0],benjin[-1])
