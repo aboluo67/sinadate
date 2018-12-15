@@ -2,7 +2,8 @@
 # 手动完成第一周K线（非实时）
 # 从当天倒推周K线（实时）
 
-import json,date
+import json,dateD
+
 # import datetime
 #
 # print(datetime.datetime.now())
@@ -22,7 +23,8 @@ import json,date
 
 
 step = 5
-P1JM0 = [date.JM0[i:i+step] for i in range(0,len(date.JM0),step)] # 每五个归入一个list
+P1JM0 = [dateD.JM0[i:i+step] for i in range(0,len(dateD.JM0),step)] # 每五个归入一个list
+
 
 clean1 = [] #date
 clean2 = [] #op
@@ -62,4 +64,8 @@ for i in range(len(P1JM0)):  # 大集合里的5组数量
     except:
         pass
 # print(each_wkdate)
-print(all_wkdate)
+# print(all_wkdate)
+
+
+for i in all_wkdate:
+    print(i)
