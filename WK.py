@@ -23,7 +23,8 @@ import json,dateD
 
 
 step = 5
-P1JM0 = [dateD.JM0[i:i+step] for i in range(0,len(dateD.JM0),step)] # 每五个归入一个list
+# P1JM0 = [dateD.JM0[i:i+step] for i in range(0,len(dateD.JM0),step)] # 每五个归入一个list
+P1JM0 = [dateD.AP0[i:i+step] for i in range(0,len(dateD.AP0),step)] # 每五个归入一个list
 
 
 clean1 = [] #date
@@ -34,8 +35,8 @@ clean5 = [] #c
 each_wkdate = []
 all_wkdate = []
 
-for i in range(len(P1JM0)):  # 大集合里的5组数量
-    try:
+for i in range(len(P1JM0)-1):  # 大集合里的5组数量
+    # try:
         each_wkdate = []
         # print(P1JM0[i])
         # print(len(P1JM0))
@@ -46,14 +47,18 @@ for i in range(len(P1JM0)):  # 大集合里的5组数量
             clean3.append(P1JM0[i][ii][2])
             clean4.append(P1JM0[i][ii][3])
             clean5.append(P1JM0[i][ii][4])
-
+            # print('H:', (float(P1JM0[i][ii][1]) + float(P1JM0[i][ii][4])) / 2)
         each_wkdate.append(clean1[-1])
         # print('clean1')
         # print(clean1)
         each_wkdate.append(clean2[0])
+        # print(float(clean2[0]))
         each_wkdate.append(max(clean3))
         each_wkdate.append(min(clean4))
         each_wkdate.append(clean5[-1])
+        each_wkdate.append((float(clean2[0])+float(clean5[-1]))/2)
+        # print('H:', (float(clean2[0][0] + float(clean5[-1][-1])) / 2)
+
         clean1 = []  # date
         clean2 = []  # op
         clean3 = []  # top
@@ -61,8 +66,8 @@ for i in range(len(P1JM0)):  # 大集合里的5组数量
         clean5 = []  # c
         # each_wkdate = []
         all_wkdate.append(each_wkdate)
-    except:
-        pass
+    # except:
+    #     pass
 # print(each_wkdate)
 # print(all_wkdate)
 
